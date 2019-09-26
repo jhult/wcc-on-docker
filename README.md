@@ -1,13 +1,115 @@
-# wcc-on-docker
-Dockerfiles for running Oracle WebCenter Content, on Oracle Database
+# WebCenter Content on Docker
 
-To build:
+## Overview
 
-```docker-compose build```
+This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Compose](docker-compose.yml) file for running [Oracle WebCenter Content](https://www.oracle.com/technetwork/middleware/webcenter/content/overview/index.html) 12.2.1.3 on [Oracle WebLogic Server](https://www.oracle.com/middleware/technologies/weblogic.html) 12.2.1.3 using [Oracle Database](https://www.oracle.com/database/technologies/) Enterprise Edition 12.2.0.1.
 
-To start:
+## Requirements
 
-```docker-compose up```
+- [Docker 18.09.0+](https://hub.docker.com/?overlay=onboarding)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) (to use pre-built images with binaries)
 
-More/better documentation coming soon!
+## URLs
 
+- WebLogic Server Administration Console: <http://localhost:7001/console/>
+- WebCenter Content: <http://localhost:16200/cs/>
+
+Credentials can be found in the [wcc.env file](wcc.env).
+
+## Container Names and Services
+
+- Database: `oracle-db`
+- WebCenter Content and WebLogic Server: `oracle-wcc`
+
+## Viewing container logs
+
+- Database: `docker logs -f oracle-db`
+- WebCenter Content and WebLogic Server: `docker logs -f oracle-wcc`
+
+## Build
+
+### Clone this Repository
+
+1. Navigate to a local directory where you want to clone this repository
+2. Run this command in a terminal: `git clone https://github.com/jhult/wcc-on-docker`
+
+### Login to the Oracle Container Registry
+
+1. Navigate to the [Oracle Container Registry](https://container-registry.oracle.com)
+2. Sign In using your Oracle account
+3. Navigate to [*Middleware*](https://container-registry.oracle.com/pls/apex/f?p=113:1:13639930739021::NO:1:P1_BUSINESS_AREA:2) > [*fmw-infrastructure*]
+4. Click Continue to agree and accept the Oracle terms and restrictions
+5. Run this command in a terminal and enter your your Oracle account credentials: `docker login container-registry.oracle.com`
+
+### Download WebCenter Content zip binary
+
+1. Download zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place the zip file here: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`.
+
+### Build Images
+
+1. Navigate to your local cloned repository directory
+2. Run this command in a terminal: `docker-compose build`
+3. You should eventually see a message indicating success:
+    > Successfully built 7a59abdf961f  
+    > Successfully tagged oracle/wccontent:12.2.1.3
+
+## First Run
+
+1. Run `docker-compose up` to start the containers
+
+2. You may see an error as follows:
+
+    > oracle-wcc    | wait-for: oracle-db:1521 is available after 66 seconds  
+    > oracle-wcc    |  
+    > oracle-wcc    | RCU Logfile: /tmp/RCU2019-09-26_18-43_870583981/logs/rcu.log
+    > oracle-wcc    |  
+    > oracle-wcc    | Enter the database password(User:sys):  
+    > oracle-wcc    |  
+    > oracle-wcc    | Processing command line ....  
+    > oracle-wcc    | Invalid SID or Service name.  
+    > oracle-wcc    | Enter valid SID or Service name.  
+    > oracle-wcc    |  
+    > oracle-wcc    | ERROR - RCU-6090 Connection step validation failed.  
+    > oracle-wcc    | CAUSE - RCU-6090 Skipping main operation: failed to connect to database because database details were missing or invalid.  
+    > oracle-wcc    | ACTION - RCU-6090 Provide correct database details and try again.  
+    > oracle-wcc exited with code 1  
+
+    If so, do the following:
+    - Click CTRL + Z to background the database process
+    - Start just the WebCenter Content container (see stop/start procedures below)
+
+3. Wait several minutes for WebCenter Content to fully start; you can check the status by viewing the container logs (see above)
+4. Finish the Post-Installation Configuration
+5. Stop and start just the WebCenter Content container (see stop/start procedures below)
+
+## Start
+
+- Start the entire stack: `docker-compose start`
+- Start just WebCenter Content (Oracle Database must already be started): `docker-compose start oracle-wcc`
+
+## Stop
+
+- Stop entire stack: `docker-compose stop`
+- Stop just WebCenter Content: `docker-compose stop oracle-wcc`
+
+There is a 5 minute grace period to stop the both containers.
+
+## Support
+
+### Oracle Support
+
+Oracle supports Oracle FMW Infrastructure in certified Docker containers. Please read [Support Information for Oracle WebLogic Server and Oracle Fusion Middleware Running in Docker Containers (Doc ID 2017945.1)](https://support.oracle.com/CSP/main/article?cmd=show&type=NOT&id=2017945.1).
+
+**Oracle does not yet support running WebCenter Content in a Docker container.**
+
+For additional details on the most current FMW Infrastructure
+supported configurations, please refer to the [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html).
+
+### Bugs and Feedback
+
+For support, bug reporting and feedback about the [provided Dockerfile](images/wcc/Dockerfile), please open an [issue on GitHub](https://github.com/oracle/docker-images/issues).
+
+### Community Support
+
+If you need general support with running containers on Oracle Linux, please visit the [OTN Community Container Space](https://community.oracle.com/community/server_&_storage_systems/containers).
