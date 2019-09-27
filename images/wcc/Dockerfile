@@ -35,9 +35,9 @@ ENV	WLS_HOME=$WL_HOME/server \
 	USER_MEM_ARGS="-Djava.security.egd=file:/dev/urandom"
 
 
-# Copy packages and scripts
+# Copy packages, scripts, and zip binary
 # -------------------------------------------------------------
-COPY install.file oraInst.loc /u01/
+COPY --chown=oracle install.file oraInst.loc $CONTENT_PKG $ROOT_HOME/
 
 # Install missing packages
 # -------------------------------------------------------------
@@ -51,12 +51,10 @@ RUN mkdir -p $ORACLE_HOME/logs && chmod a+xr $ROOT_HOME
 # -------------------------------------------------------------
 USER oracle
 
-# Base URL can be adjusted if needed
-ARG BASE_URL=http://localhost:8000/oracle/fmw
+WORKDIR $ROOT_HOME
 
-# Download install file and install
-RUN curl -fLO# "$BASE_URL/$CONTENT_PKG" \
- && printf "%s *%s\n" $CONTENT_SHA1 $CONTENT_PKG | sha1sum -c \
+# Install
+RUN printf "%s *%s\n" $CONTENT_SHA1 $CONTENT_PKG | sha1sum -c \
  && unzip $CONTENT_PKG \
  && $JAVA_HOME/bin/java -jar $CONTENT_JAR -silent -force -novalidation -ignoreSysPrereqs \
 	-responseFile $ROOT_HOME/install.file -invPtrLoc $ROOT_HOME/oraInst.loc -jreLoc $JAVA_HOME ORACLE_HOME=$ORACLE_HOME \
