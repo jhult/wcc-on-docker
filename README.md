@@ -77,7 +77,7 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 
 ### Download WebCenter Content zip binary
 
-1. Download zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place the zip file here: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`.
+1. Download the binary zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place in this location: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`.
 
 ### Build Images
 
@@ -87,9 +87,11 @@ Alternatively, you can download the entire repository as a zip file by [clicking
     > Successfully built 7a59abdf961f  
     > Successfully tagged oracle/wccontent:12.2.1.3
 
+`oracle/wccontent:12.2.1.3` is the [image name](#image-name)
+
 ## First Run
 
-1. Run `docker-compose up` to start the containers
+1. Run `docker-compose up` to start [the containers](#container-names-and-services)
 
 2. You may see an error as follows:
 
@@ -110,18 +112,23 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 
     If so, do the following:
     - Click CTRL + Z to background the database process
-    - Start just the WebCenter Content container (see stop/start procedures below)
+    - [Start](#start) just the WebCenter Content container
 
-3. Wait several minutes for WebCenter Content to fully start; you can check the status by viewing the container logs (see above)
+3. Wait several minutes for WebCenter Content to fully start; you can check the status by [viewing the container logs](#view-container-logs)
 4. Finish the Post-Installation Configuration
-5. Stop and start just the WebCenter Content container (see stop/start procedures below)
+5. [Stop](#stop) and [start](#start) just the WebCenter Content container
 
-## Start
+## Start / Stop
+
+1. These commands should be run from the directory where the [docker-compose.yml](docker-compose.yml) exists. Alternatively, you can pass the option `-f` and specify the location of the docker-compose.yml file. Example: `docker-compose -f /tmp/wcc-on-docker/docker-compose.yml start`
+2. `oracle-db` and `oracle-wcc` are the [container names](#container-names-and-services).
+
+### Start
 
 - Start the entire stack: `docker-compose start`
 - Start just WebCenter Content (Oracle Database must already be started): `docker-compose start oracle-wcc`
 
-## Stop
+### Stop
 
 - Stop entire stack: `docker-compose stop`
 - Stop just WebCenter Content: `docker-compose stop oracle-wcc`
