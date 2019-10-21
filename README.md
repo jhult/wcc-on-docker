@@ -6,9 +6,27 @@ This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Co
 
 ## Requirements
 
-- [Docker 18.09.0+](https://hub.docker.com/?overlay=onboarding)
-- [Docker Compose](https://docs.docker.com/compose/)
+### Software
+
+- [Docker 18.09.0 or greater](https://docs.docker.com/install/#supported-platforms)
+  - Version 18.09.0 or greater is required to use the `chown` [flag when copying files](https://github.com/moby/moby/pull/35521)
+  - The [docker-compose.yml](docker-compose.yml) is using version `3.7` which [requires at 18.06.0 or greater](https://docs.docker.com/compose/compose-file/#compose-and-docker-compatibility-matrix)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - This is used to [clone the repository](#clone-this-repository) (and comes pre-installed on most Linux OSes)
+
+### Accounts
+
 - [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) (to use pre-built images with binaries)
+- You will need [sudo / superuser rights](https://en.wikipedia.org/wiki/Sudo) to the machine in order to install Docker and Docker Compose
+
+### Disk Space
+
+- [WebCenter Content zip binary](#download-webCenter-content-zip-binary) = 1.6 GiB
+- image `middleware/fmw-infrastructure:12.2.1.3` = 2.3 GiB
+- image `database/enterprise:12.2.0.1` = 3.4 GiB
+- image `oracle/wccontent:12.2.1.3` = 5.6 GiB
+
 
 ## URLs
 
