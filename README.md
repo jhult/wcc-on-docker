@@ -56,9 +56,11 @@ Credentials can be found in the [wcc.env file](wcc.env).
 
 1. Navigate to the [Oracle Container Registry](https://container-registry.oracle.com)
 2. Sign In using your Oracle account
-3. Navigate to [*Middleware*](https://container-registry.oracle.com/pls/apex/f?p=113:1:13639930739021::NO:1:P1_BUSINESS_AREA:2) > [*fmw-infrastructure*]
+3. Navigate to [*Middleware*](https://container-registry.oracle.com/pls/apex/f?p=113:1:13639930739021::NO:1:P1_BUSINESS_AREA:2) > *fmw-infrastructure*
 4. Click Continue to agree and accept the Oracle terms and restrictions
-5. Run this command in a terminal and enter your your Oracle account credentials: `docker login container-registry.oracle.com`
+5. Navigate to [*Database*](https://container-registry.oracle.com/pls/apex/f?p=113:1:12598430189688::NO:1:P1_BUSINESS_AREA:3) > *enterprise*
+6. Click Continue to agree and accept the Oracle terms and restrictions
+7. Run this command in a terminal and enter your your Oracle account credentials: `docker login container-registry.oracle.com`
 
 ### Download WebCenter Content zip binary
 
