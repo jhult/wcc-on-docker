@@ -12,7 +12,7 @@ This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Co
   - Version 18.09.0 or greater is required to use the `chown` [flag when copying files](https://github.com/moby/moby/pull/35521)
   - The [docker-compose.yml](docker-compose.yml) is using version `3.7` which [requires at 18.06.0 or greater](https://docs.docker.com/compose/compose-file/#compose-and-docker-compatibility-matrix)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
   - This is used to [clone the repository](#clone-this-repository) (and comes pre-installed on most Linux OSes)
 
 ### Accounts
@@ -63,7 +63,7 @@ These are defined in the [docker-compose.yml](docker-compose.yml).
 1. Navigate to a local directory where you want to clone this repository
 2. Run this command in a terminal: `git clone https://github.com/jhult/wcc-on-docker`
 
-Alternatively, you can download the entire repository as a zip file by [clicking here](/jhult/wcc-on-docker/archive/master.zip).
+Alternatively, you can download the entire repository as a zip file by [clicking here](https://github.com/jhult/wcc-on-docker/archive/master.zip).
 
 ### Login to the Oracle Container Registry
 
@@ -77,7 +77,7 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 
 ### Download WebCenter Content zip binary
 
-1. Download the binary zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place in this location: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`.
+1. Download the binary zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place in this location: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`
 
 ### Build Images
 
@@ -121,7 +121,7 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 ## Start / Stop
 
 1. These commands should be run from the directory where the [docker-compose.yml](docker-compose.yml) exists. Alternatively, you can pass the option `-f` and specify the location of the docker-compose.yml file. Example: `docker-compose -f /tmp/wcc-on-docker/docker-compose.yml start`
-2. `oracle-db` and `oracle-wcc` are the [container names](#container-names-and-services).
+2. `oracle-db` and `oracle-wcc` are the [container names](#container-names-and-services)
 
 ### Start
 
