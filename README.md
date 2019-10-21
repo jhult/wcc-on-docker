@@ -27,23 +27,34 @@ This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Co
 - image `database/enterprise:12.2.0.1` = 3.4 GiB
 - image `oracle/wccontent:12.2.1.3` = 5.6 GiB
 
+## Image and Container Information
 
-## URLs
+### URLs
 
 - WebLogic Server Administration Console: <http://localhost:7001/console/>
 - WebCenter Content: <http://localhost:16200/cs/>
 
 Credentials can be found in the [wcc.env file](wcc.env).
 
-## Container Names and Services
+### Image Name
+
+`oracle/wccontent:12.2.1.3`
+
+This is defined in the [docker-compose.yml](docker-compose.yml).
+
+### Container Names and Services
 
 - Database: `oracle-db`
 - WebCenter Content and WebLogic Server: `oracle-wcc`
 
-## Viewing container logs
+These are defined in the [docker-compose.yml](docker-compose.yml).
+
+### View Container Logs
 
 - Database: `docker logs -f oracle-db`
 - WebCenter Content and WebLogic Server: `docker logs -f oracle-wcc`
+
+`oracle-db` and `oracle-wcc` are the [container names](#container-names-and-services).
 
 ## Build
 
