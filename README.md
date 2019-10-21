@@ -63,6 +63,8 @@ These are defined in the [docker-compose.yml](docker-compose.yml).
 1. Navigate to a local directory where you want to clone this repository
 2. Run this command in a terminal: `git clone https://github.com/jhult/wcc-on-docker`
 
+Alternatively, you can download the entire repository as a zip file by [clicking here](/jhult/wcc-on-docker/archive/master.zip).
+
 ### Login to the Oracle Container Registry
 
 1. Navigate to the [Oracle Container Registry](https://container-registry.oracle.com)
