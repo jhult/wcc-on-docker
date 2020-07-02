@@ -15,7 +15,7 @@ services:
       - ./oradata:/opt/oracle/oradata
 
   oracle-wcc:
-    image: oracle/wccontent:12.2.1.3
+    image: oracle/wccontent:12.2.1.4
     container_name: oracle-wcc
     build:
       network: host

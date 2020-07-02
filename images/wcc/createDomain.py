@@ -11,11 +11,11 @@ loadTemplates()
 
 # Selects following templates:
 
-# - Basic WebLogic Server Domain:12.2.1.3.0
-# - WebLogic Coherence Cluster Extension:12.2.1.3.0
-# - Oracle JRF:12.2.1.3.0
-# - Oracle Universal Content Management - Content Server:12.2.1.3.0
-# - Oracle Enterprise Manager:12.2.1.3.0
+# - Basic WebLogic Server Domain:12.2.1.4.0
+# - WebLogic Coherence Cluster Extension:12.2.1.4.0
+# - Oracle JRF:12.2.1.4.0
+# - Oracle Universal Content Management - Content Server:12.2.1.4.0
+# - Oracle Enterprise Manager:12.2.1.4.0
 
 cd('/Security/base_domain/User/weblogic')
 set('Name', os.environ['ADMIN_USERNAME'])

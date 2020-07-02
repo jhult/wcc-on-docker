@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Compose](docker-compose.yml) file for running [Oracle WebCenter Content](https://www.oracle.com/technetwork/middleware/webcenter/content/overview/index.html) 12.2.1.3 on [Oracle WebLogic Server](https://www.oracle.com/middleware/technologies/weblogic.html) 12.2.1.3 using [Oracle Database](https://www.oracle.com/database/technologies/) Enterprise Edition 12.2.0.1.
+This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Compose](docker-compose.yml) file for running [Oracle WebCenter Content](https://www.oracle.com/technetwork/middleware/webcenter/content/overview/index.html) 12.2.1.4 on [Oracle WebLogic Server](https://www.oracle.com/middleware/technologies/weblogic.html) 12.2.1.4 using [Oracle Database](https://www.oracle.com/database/technologies/) Enterprise Edition 12.2.0.1.
 
 ## Requirements
 
@@ -23,9 +23,9 @@ This repository contains a [Dockerfile](images/wcc/Dockerfile) plus a [Docker-Co
 ### Disk Space
 
 - [WebCenter Content zip binary](#download-webCenter-content-zip-binary) = 1.6 GiB
-- image `middleware/fmw-infrastructure:12.2.1.3` = 2.3 GiB
+- image `middleware/fmw-infrastructure:12.2.1.4-200316` = 2.3 GiB
 - image `database/enterprise:12.2.0.1` = 3.4 GiB
-- image `oracle/wccontent:12.2.1.3` = 5.6 GiB
+- image `oracle/wccontent:12.2.1.4` = 5.6 GiB
 
 ## Image and Container Information
 
@@ -38,7 +38,7 @@ Credentials can be found in the [wcc.env file](wcc.env).
 
 ### Image Name
 
-`oracle/wccontent:12.2.1.3`
+`oracle/wccontent:12.2.1.4`
 
 This is defined in the [docker-compose.yml](docker-compose.yml).
 
@@ -77,7 +77,7 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 
 ### Download WebCenter Content zip binary
 
-1. Download the binary zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place in this location: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip`
+1. Download the binary zip from [here](https://www.oracle.com/middleware/technologies/webcenter-content-download.html) and place in this location: `[CLONED_REPOSITORY_DIRECTORY]/images/wcc/V983399-01.zip`
 
 ### Build Images
 
@@ -85,9 +85,9 @@ Alternatively, you can download the entire repository as a zip file by [clicking
 2. Run this command in a terminal: `docker-compose build`
 3. You should eventually see a message indicating success:
     > Successfully built 7a59abdf961f  
-    > Successfully tagged oracle/wccontent:12.2.1.3
+    > Successfully tagged oracle/wccontent:12.2.1.4
 
-`oracle/wccontent:12.2.1.3` is the [image name](#image-name)
+`oracle/wccontent:12.2.1.4` is the [image name](#image-name)
 
 ## First Run
 

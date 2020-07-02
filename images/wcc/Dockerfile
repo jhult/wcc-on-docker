@@ -5,9 +5,9 @@
 #
 # Description: This file is used to build Oracle WebCenter Content image
 #
-# Pull base image from the Oracle Container Registry or Docker Store and tag the name as 'oracle/fmw-infrastructure:12.2.1.3'
+# Pull base image from the Oracle Container Registry or Docker Store and tag the name as 'oracle/fmw-infrastructure:12.2.1.4-200316'
 # -------------------------------------------------------------
-FROM container-registry.oracle.com/middleware/fmw-infrastructure:12.2.1.3
+FROM container-registry.oracle.com/middleware/fmw-infrastructure:12.2.1.4-200316
 
 # Environment variables required for this build (do NOT change)
 # -------------------------------------------------------------
@@ -15,16 +15,16 @@ USER root
 
 ENV ROOT_HOME=/u01
 ENV	ORACLE_HOME=$ROOT_HOME/oracle
+ENV     CONTAINER_SCRIPT_DIR=$ORACLE_HOME/container-scripts
 ENV	MW_HOME=$ORACLE_HOME
 ENV	WL_HOME=$ORACLE_HOME/wlserver
 ENV	WLS_HOME=$WL_HOME/server \
 	UCM_ORACLE_HOME=$ORACLE_HOME/wccontent \
 	DOMAIN_ROOT=$ORACLE_HOME/user_projects/domains \
-	PATH=$PATH:$JAVA_HOME/bin:$ORACLE_HOME/oracle_common/common/bin \
-	CONTAINER_SCRIPT_DIR=$ORACLE_HOME/container-scripts \
-	CONTENT_PKG=fmw_12.2.1.3.0_wccontent_Disk1_1of1.zip \
-	CONTENT_SHA1=945b1514a7f8fcc48484939458bc6898b0a37cdc \
-	CONTENT_JAR=fmw_12.2.1.3.0_wccontent.jar \
+	PATH=$PATH:$JAVA_HOME/bin:$ORACLE_HOME/oracle_common/common/bin:$CONTAINER_SCRIPT_DIR \
+	CONTENT_PKG=V983399-01.zip \
+	CONTENT_SHA1=521cfd9f33b89005bd94af51dd05a36868461b82 \
+	CONTENT_JAR=fmw_12.2.1.4.0_wccontent.jar \
 	ADMIN_PORT=7001 \
 	WCCONTENT_PORT=16200 \
 	ADMIN_SSL_PORT=9001 \
