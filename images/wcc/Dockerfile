@@ -58,7 +58,7 @@ RUN printf "%s *%s\n" $CONTENT_SHA1 $CONTENT_PKG | sha1sum -c \
  && unzip $CONTENT_PKG \
  && $JAVA_HOME/bin/java -jar $CONTENT_JAR -silent -force -novalidation -ignoreSysPrereqs \
 	-responseFile $ROOT_HOME/install.file -invPtrLoc $ROOT_HOME/oraInst.loc -jreLoc $JAVA_HOME ORACLE_HOME=$ORACLE_HOME \
-	&& rm -rf $CONTENT_JAR $CONTENT_PKG oraInst.loc install.file fmw_12213_readme.htm
+	&& rm -rf $CONTENT_JAR $CONTENT_PKG oraInst.loc install.file fmw_12214_readme.html
 
 WORKDIR $ORACLE_HOME
 
